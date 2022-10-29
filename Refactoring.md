@@ -9,3 +9,5 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+Nested "if" statements decreases code readability. I have used the idea of "early return" whenever possible. Instead of holding intermediate value in a variable and calculate later, I just return early if possible. This way we can reduce the use of nested "if" statements.
