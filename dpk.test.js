@@ -70,4 +70,11 @@ describe("deterministicPartitionKey", () => {
 
     expect(trivialKey).toBe(hash(input.partitionKey));
   });
+
+  it("Returns the literal '0' when given input is falsy", () => {
+    expect(deterministicPartitionKey(0)).toBe("0");
+    expect(deterministicPartitionKey(false)).toBe("0");
+    expect(deterministicPartitionKey(null)).toBe("0");
+    expect(deterministicPartitionKey("")).toBe("0");
+  });
 });
