@@ -77,4 +77,12 @@ describe("deterministicPartitionKey", () => {
     expect(deterministicPartitionKey(null)).toBe("0");
     expect(deterministicPartitionKey("")).toBe("0");
   });
+
+  it("Returns hash of entire object if given object has partitionKey field with falsy value", () => {
+    const input = {
+      partitionKey: false,
+    };
+    const trivialKey = deterministicPartitionKey(input);
+    expect(trivialKey).toBe(hash(input));
+  });
 });
