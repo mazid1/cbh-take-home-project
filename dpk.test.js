@@ -16,7 +16,7 @@ describe("deterministicPartitionKey", () => {
     expect(trivialKey).toBe("0");
   });
 
-  it("Returns the original partition key when given an object with 'partitionKey' as string and < 256 character", () => {
+  it("Returns the original partition key when given an object with 'partitionKey' as string and <= 256 character", () => {
     const key = "Some string as key with length less than 256";
     const trivialKey = deterministicPartitionKey({
       partitionKey: key,
@@ -24,7 +24,7 @@ describe("deterministicPartitionKey", () => {
     expect(trivialKey).toBe(key);
   });
 
-  it("Returns the hash of the original partition key when given an object with 'partitionKey' as string and >= 256 character", () => {
+  it("Returns the hash of the original partition key when given an object with 'partitionKey' as string and > 256 character", () => {
     const key =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis elit tellus, ut scelerisque lacus tempus a. Pellentesque quis cursus dui, non elementum nibh. Maecenas maximus nisl in massa ullamcorper molestie vestibulum nec felis. Donec fringilla fusce.";
     const trivialKey = deterministicPartitionKey({
@@ -44,7 +44,7 @@ describe("deterministicPartitionKey", () => {
     expect(deterministicPartitionKey(notAnObject)).toBe(hash(notAnObject));
   });
 
-  it("Returns the JSON string of 'partitionKey' if the input object has this key and it is not an string, and the json string has length < 256", () => {
+  it("Returns the JSON string of 'partitionKey' if the input object has this key and it is not an string, and the json string has length <= 256", () => {
     const input = {
       partitionKey: {
         key: "abc",
@@ -57,7 +57,7 @@ describe("deterministicPartitionKey", () => {
     expect(trivialKey).toBe(JSON.stringify(input.partitionKey));
   });
 
-  it("Returns the hash of the JSON string of 'partitionKey' if the input object has this key and it is not an string, and the json string has length >= 256", () => {
+  it("Returns the hash of the JSON string of 'partitionKey' if the input object has this key and it is not an string, and the json string has length > 256", () => {
     const input = {
       partitionKey: {
         key: "abc",
