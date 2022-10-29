@@ -23,7 +23,7 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
   - agent_id
   - custom_id (varchar)
 
-This `custom_id` field will be used as the cusom ID for the facility.
+This `custom_id` field will be used as the cusom ID for the facility.    
 Estimated time: 4 hours
 
 ### Refactor `getShiftsByFacility` function to get `custom_id` with it
@@ -36,4 +36,5 @@ Estimated time: 4 hours
 - When generate the report PDF, use `custom_id` (if available) as the Agent_id
 - If custom_id is not available then show the original agent_id.
 
-Estimated time: 4 hours
+Estimated time: 4 hours    
+Acceptance criteria: If custom_id available then it should be visible, but if there is no custom_id then the original agent_id should be visible.
