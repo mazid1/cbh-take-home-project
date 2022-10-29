@@ -16,3 +16,24 @@ Based on the information given, break this ticket down into 2-5 individual ticke
 You will be graded on the level of detail in each ticket, the clarity of the execution plan within and between tickets, and the intelligibility of your language. You don't need to be a native English speaker, but please proof-read your work.
 
 ## Your Breakdown Here
+
+### Create Facility_agent join table
+- This join table should have these columns:
+  - facility_id
+  - agent_id
+  - custom_id (varchar)
+
+This `custom_id` field will be used as the cusom ID for the facility.
+Estimated time: 4 hours
+
+### Refactor `getShiftsByFacility` function to get `custom_id` with it
+- This get method should get data by joining Facilities, Agents, Shifts and Facility_agent table
+- Along with other necessary data it should get the `custom_id` from the `Facility_agent` table
+
+Estimated time: 4 hours
+
+### Generate Report with custom_id
+- When generate the report PDF, use `custom_id` (if available) as the Agent_id
+- If custom_id is not available then show the original agent_id.
+
+Estimated time: 4 hours
